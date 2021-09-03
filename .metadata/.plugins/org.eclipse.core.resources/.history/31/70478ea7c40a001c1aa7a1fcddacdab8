@@ -1,0 +1,18 @@
+package com.javalec.calex;
+
+import java.util.ArrayList;
+
+public class ArrayListName {
+
+	
+
+	public static void main(String[] args) {
+		ArrayList<String> nameList = new ArrayList<>();
+        nameList.add("±ËΩ≈¿«");
+        
+        System.out.println(nameList.size());
+        System.out.println(nameList);
+
+	}
+
+}

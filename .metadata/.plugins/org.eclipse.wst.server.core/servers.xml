@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v7.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v7.0 Server at localhost" name="Tomcat v7.0 Server at localhost" runtime-id="Apache Tomcat v7.0 (2)" saveSeparateContextFiles="true" server-type="org.eclipse.jst.server.tomcat.70" server-type-id="org.eclipse.jst.server.tomcat.70" start-timeout="45" stop-timeout="15" testEnvironment="false" timestamp="17">
+    <list key="modules" value0="3Ex::org.eclipse.jst.jee.server:3Ex::jst.web::3.0" value1="helloworld1::org.eclipse.jst.jee.server:helloworld1::jst.web::3.0" value2="exPara::org.eclipse.jst.jee.server:exPara::jst.web::3.0" value3="ExJsp10::org.eclipse.jst.jee.server:ExJsp10::jst.web::3.0"/>
+  </server>
+</servers>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.javalec.calex.ArrayList&apos; to &apos;ArrayListName&apos;&#x0D;&#x0A;- Original project: &apos;3Ex&apos;&#x0D;&#x0A;- Original element: &apos;com.javalec.calex.ArrayList&apos;&#x0D;&#x0A;- Renamed element: &apos;com.javalec.calex.ArrayListName&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ArrayList&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.javalec.calex{ArrayList.java[ArrayList" matchStrategy="1" name="ArrayListName" qualified="false" references="true" similarDeclarations="false" stamp="1630458927661" textual="false" version="1.0"/>
+</session>

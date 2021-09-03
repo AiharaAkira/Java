@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Thu Sep 02 03:41:58 KST 2021
+org.eclipse.jst.jee.server\:3Ex=C\:\\javalec\\apache-tomcat-7.0.100-windows-x64\\apache-tomcat-7.0.100\\wtpwebapps\\3Ex
+org.eclipse.jst.jee.server\:helloworld1=C\:\\javalec\\apache-tomcat-7.0.100-windows-x64\\apache-tomcat-7.0.100\\wtpwebapps\\helloworld1
+org.eclipse.jst.jee.server\:exPara=C\:\\javalec\\apache-tomcat-7.0.100-windows-x64\\apache-tomcat-7.0.100\\wtpwebapps\\exPara
+org.eclipse.jst.jee.server\:ExJsp10=C\:\\javalec\\apache-tomcat-7.0.100-windows-x64\\apache-tomcat-7.0.100\\wtpwebapps\\ExJsp10

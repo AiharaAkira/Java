@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.javalec.calex.ExEx&apos; to &apos;ExCodeitPresentation&apos;&#x0D;&#x0A;- Original project: &apos;3Ex&apos;&#x0D;&#x0A;- Original element: &apos;com.javalec.calex.ExEx&apos;&#x0D;&#x0A;- Renamed element: &apos;com.javalec.calex.ExCodeitPresentation&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ExEx&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.javalec.calex{ExEx.java[ExEx" matchStrategy="1" name="ExCodeitPresentation" qualified="false" references="true" similarDeclarations="false" stamp="1629546775922" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,11 @@
+INDEX VERSION 1.4+C:\javalec]\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1689598169.index
+3129875502.index
+1230371910.index
+1334094933.index
+509155495.index
+1022060463.index
+3383376152.index
+1294372181.index
+1432516225.index
+39959500.index
