@@ -18,7 +18,7 @@ public class MetroProblem {
 		
 		System.out.println("이 도시는 메트로폴리스입니까? :");
 
-		if (answerCity == 1 && answerPeople >=100 && answerRich >= 60 ) {
+		if ((answerCity == 1 && answerPeople >=100) || answerRich >= 60 ) {
 			System.out.println(result);
 		} else {
 			System.out.println(!result);
