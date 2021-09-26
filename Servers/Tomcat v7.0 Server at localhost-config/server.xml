@@ -126,7 +126,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="Ex2" path="/Ex2" reloadable="true" source="org.eclipse.jst.jee.server:Ex2"/><Context docBase="ex3" path="/ex3" reloadable="true" source="org.eclipse.jst.jee.server:ex3"/><Context docBase="ActionTag" path="/ActionTag" reloadable="true" source="org.eclipse.jst.jee.server:ActionTag"/><Context docBase="ex4" path="/ex4" reloadable="true" source="org.eclipse.jst.jee.server:ex4"/><Context docBase="ex05" path="/ex05" reloadable="true" source="org.eclipse.jst.jee.server:ex05"/><Context docBase="3Ex" path="/3Ex" reloadable="true" source="org.eclipse.jst.jee.server:3Ex"/><Context docBase="helloworld1" path="/helloworld1" reloadable="true" source="org.eclipse.jst.jee.server:helloworld1"/><Context docBase="exPara" path="/exPara" reloadable="true" source="org.eclipse.jst.jee.server:exPara"/><Context docBase="ExJsp10" path="/ExJsp10" reloadable="true" source="org.eclipse.jst.jee.server:ExJsp10"/></Host>
+      <Context docBase="helloworld1" path="/helloworld1" reloadable="true" source="org.eclipse.jst.jee.server:helloworld1"/><Context docBase="JdbcEx" path="/JdbcEx" reloadable="true" source="org.eclipse.jst.jee.server:JdbcEx"/></Host>
     </Engine>
   </Service>
 </Server>
