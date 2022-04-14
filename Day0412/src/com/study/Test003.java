@@ -14,15 +14,15 @@ public class Test003 {
 		String address = "경기도 의정부시 민락동";
 		String motto = "자유롭게";
 		
-		System.out.printf("이름:%s",name +"\n");
-		System.out.printf("고향:%s",local+"\n");
-		System.out.printf("전공:%s",major+"\n");
-		System.out.printf("취미:%s",hobby+"\n");
-		System.out.printf("특기:%s",specialty+"\n");
-		System.out.printf("성별:%s",gender+"\n");
-		System.out.printf("전화번호:%s",phoneNum+"\n");
-		System.out.printf("주소:%s",address+"\n");
-		System.out.printf("좌우명:%s",motto+"\n");
+		System.out.printf("이름		:	%s",name +"\n");
+		System.out.printf("고향		:	%s",local+"\n");
+		System.out.printf("전공		:	%s",major+"\n");
+		System.out.printf("취미		:	%s",hobby+"\n");
+		System.out.printf("특기		:	%s",specialty+"\n");
+		System.out.printf("성별		:	%s",gender+"\n");
+		System.out.printf("전화번호	:	%s",phoneNum+"\n");
+		System.out.printf("주소		:	%s",address+"\n");
+		System.out.printf("좌우명	:	%s",motto+"\n");
 		
 		Thread.sleep(1000);
 		System.out.print(".");
