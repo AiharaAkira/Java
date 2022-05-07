@@ -1,0 +1,21 @@
+1. import 하기 (프로젝트 가져오기)
+file > import > general > existing Projects into workspace
+
+2. 소량의 파일만 가져가거나 단순히 볼때
+workspace > project > src > .java파일(메모장열림)
+		           또는 이클립스 프로젝트에 복사
+
+3. jar파일 배포하기
+file > export > java > runnable jar file > *배포 프로젝트 선택*
+
+4. bat 파일 만들기 (jar파일 실행)
+
+메모장을 열고 아래의 명령어를 작성한 후
+'다른이름으로 저장'  에서 파일형식을 '모든파일'로 선택 후
+파일명.bat로 저장
+
+	- 경로가 같이 있는 경우
+		java -jar 파일명.jar
+
+	- 경로가 다른경우 jar파일의 경로를 기입
+		java -jar (.jar경로)\파일명.jar
