@@ -25,6 +25,11 @@ public class WhileExam04 {
 				String numP = sc.next();
 				int num = 0;
 
+				if(Integer.parseInt(numP)>99 || Integer.parseInt(numP)<0) {
+					System.out.println("0~99까지의 숫자만 입력해 주세요.");
+					continue;
+				}
+				
 				if (numP.equals(gameNum2)) {
 					System.out.println("정답!");
 
