@@ -21,23 +21,36 @@ public class Card {
 	}
 
 
-	public String getNum() {
-		return num;
-		
-	}
-
-
-	public void setNum(String num) {
-		this.num = num;
-		
-	}
-
-
 	public Card(String shape, String num) {
 		super();
 		this.shape = shape;
 		this.num = num;
 	}
+
+
+	public String getNum() {
+		return num;
+	}
+
+
+	public void setNum(String num) {
+		this.num = num;
+	}
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 }
