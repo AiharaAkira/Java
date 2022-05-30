@@ -2,67 +2,93 @@ package com.member;
 
 import java.util.Scanner;
 
-public class DeleteAction implements Action{
+public class DeleteAction implements Action {
 
 	@Override
 	public void excute(Scanner sc) {
-		
-		System.out.println("수정할 회원 정보");
-		System.out.println("수정할 회원 정보 이름");
-		System.out.println("이름 입력");
+
+		System.out.println("삭제할 회원 정보");
+		System.out.println("삭제할 회원 정보 이름");
+		System.out.println("이름 입력:");
 		String name = sc.next();
-		MemberVO member = getUpdateMember(name);
-		
-		if(member == null) {
-			
+		MemberVO member = getDeleteMember(name);
+
+		if (member == null) {
+
 			System.out.println("삭제할 회원의 정보가 존재하지 않습니다.");
 			return;
-	
-		}else {
+
+		} else {
+
+			String tel = null;
+			String email = null;
+			int age = 0;
+			String nation = null;
+
+			member = new MemberVO(name, tel, email, age, nation);
+
+			MemberVO[] membersTemp = MemberMain.members;
 			
-			System.out.println("전화번호:");
-			String tel = sc.next();
+			// 삭제
 			
-			System.out.println("국적:");
-			String nation = sc.next();
+			//변경전 길이
+			int count = membersTemp.length;
 			
-			System.out.println("나이:");
-			int age = sc.nextInt();
-			
-			System.out.println("이메일:");
-			String email = sc.next();
-		
-			member = new MemberVO(name, tel ,email,age, nation);
-			
-			for(int i = 0; i<MemberMain.members.length;i++) {
-				
-				if(MemberMain.members[i].getName().equals(name)) {
-					MemberMain.members[i] = member;
+			for (int i = 0; i < count; i++) {
+
+				if (membersTemp[i].getName().equals(name)) {
+					
+					for(int j = i; j<count-1; j++) {
+						
+						membersTemp[j] = membersTemp[j+1];
+						
+					}
+					count--;
+					break;
+					
 				}
 				
+				
 			}
 			
+			
+			//이전배열에 삽입
+			MemberMain.members = new MemberVO[MemberMain.members.length-1];
+			MemberVO[] membersReal = MemberMain.members;
+			
+			for(int i = 0; i<MemberMain.members.length; i++) {
+				
+				
+				membersReal[i] = membersTemp[i];
+			}
+			
+			
 		}
-		
+
 	}
+
 	
-	private MemberVO getUpdateMember(String name) {
-		
+
+	// 멤버찾기
+	private MemberVO getDeleteMember(String name) {
+
 		MemberVO[] members = MemberMain.members;
 		MemberVO member = null;
-		
-		for(int i = 0; i<members.length; i++) {
-			
-			if(members[i].getName().equals(name)) {
+
+		for (int i = 0; i < members.length; i++) {
+
+			if (members[i].getName().equals(name)) {
+					
 				member = members[i];
+				
 			}
-			
+
 		}
-		
+
 		return member;
-		
+
 	}
+
 	
-	
-	
+
 }

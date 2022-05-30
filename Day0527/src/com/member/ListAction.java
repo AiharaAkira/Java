@@ -1,5 +1,6 @@
 package com.member;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ListAction implements Action {
@@ -9,7 +10,9 @@ public class ListAction implements Action {
 
 		MemberVO[] members = MemberMain.members;
 
-		if (members.length >= 1) {
+		if (members.equals( null)) {
+			System.out.println("회원정보가 없습니다.");
+		}else if (members.length >= 1) {
 
 			for (int i = 0; i < members.length; i++) {
 
@@ -22,7 +25,9 @@ public class ListAction implements Action {
 			}
 
 		} else {
+			
 			System.out.println("회원정보가 없습니다.");
+
 		}
 
 	}

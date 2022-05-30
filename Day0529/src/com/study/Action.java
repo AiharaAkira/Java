@@ -1,4 +1,4 @@
-package com.member;
+package com.study;
 
 import java.util.Scanner;
 
