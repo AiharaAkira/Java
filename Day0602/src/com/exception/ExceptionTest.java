@@ -26,6 +26,27 @@ public class ExceptionTest {
 		
 	}
 	
+	
+	static void Install() throws InstallException, MemoryException{
+		
+		try {
+			
+			startInstall();
+			copyFiles();
+		}catch (SpaceException se) {
+		
+			InstallException ie = new InstallException("설치중 오류");
+			ie.initCause(se);
+			throw ie;
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
 	static void startInstall() throws SpaceException, MemoryException{
 		
 		if(!enoughMemory()) {
