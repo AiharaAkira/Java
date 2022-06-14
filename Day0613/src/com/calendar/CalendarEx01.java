@@ -8,6 +8,7 @@ public class CalendarEx01 {
 
 		// Calendar는 추상클래스라 new로 객체생성불가
 		Calendar now = Calendar.getInstance();
+		
 		/*
 		 * Calendar 객체를 생성할 수 있는 방법 3가지 1.Calendar now = Calendar.getInstance();
 		 * 2.Calendar now = new GregorianCalendar(); 3.GregorianCalendar now = new
@@ -15,6 +16,7 @@ public class CalendarEx01 {
 		 * 
 		 * GregorianCalendar는 Calendar클래스의 하위클래스
 		 */
+		
 		String str1 = String.format("%1$tF %1$tA %1$tT", now);
 		System.out.println(str1);
 
@@ -58,6 +60,24 @@ public class CalendarEx01 {
 		}
 		
 		System.out.println(y+"-"+m+"-"+d+" "+week);
+		
+		now.add(Calendar.DATE, 1000);
+		System.out.printf("%tF%n", now);
+		
+		//2023.6.15
+		now.set(2023, 6-1, 15);
+		System.out.printf("%tF%n", now);
+		
+		
+		now.set(Calendar.DATE, 20);
+		System.out.printf("%tF%n", now);
+
+		
+		now.set(2023, 6-1, 32);
+		System.out.printf("%tF%n", now);
+		
+		int dd = now.getActualMaximum(Calendar.DATE);
+		System.out.println("해당월의 마지막 날짜 : "+dd);
 		
 
 	}
