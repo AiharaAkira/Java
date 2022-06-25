@@ -54,13 +54,13 @@ class ATM implements Runnable {
 		synchronized (this.getClass()) {
 
 			for (int i = 0; i < 10; i++) {
-
+				
 				try {
 					Thread.sleep(1000);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+				
 				if (getDepositeMoney() <= 0) {
 					break;
 				}
