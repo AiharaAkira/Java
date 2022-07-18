@@ -1,0 +1,90 @@
+1. DAO에 paging 기능을 가져와서 정의한다. 
+(movie에서 만든거 그대로 복붙해서 그 안에 movies만 reviews로 잘 바꿔줌)
+
+public void paging(int page, HttpServletRequest request) {
+		request.setAttribute("curPageNo", page);
+		// 전체 페이지 수 계산
+		int cnt = 3; // 한 페이지당 보여줄 개수
+		int total = reviews.size();	// 총 데이터 개수
+		
+		int pageCount = (int) Math.ceil(total/(double)cnt);
+		request.setAttribute("pageCount", pageCount);
+		
+		int start = total - (cnt * (page-1));
+		int end = (page == pageCount) ? -1 : start - (cnt + 1);
+		
+		ArrayList<Review> items = new ArrayList<Review>();
+		for (int i = start-1; i > end; i--) {
+			items.add(reviews.get(i));
+		}
+		
+		request.setAttribute("reviews", items);
+		
+	}
+
+
+--------------------------------------------------------------------------------------------------
+2. 제일 위 필드에 다음을 적는다
+- 페이징 처리를 위한 전체 카운트(size)을 얻기위해
+reviews를 필드에. (이러면 다른 메소드에서 다 쓸 수 있으니까)
+
+getAll 내부에 있는 reviews앞에 선언부 삭제(그래야 필드를 가리키게 되니까)
+- 에러뜨면 메소드에 static 삭제. (인스턴스 변수를 사용하는데 클래스 메소드면 안되니까)
+- 싱글톤 패턴으로 dao을 단일 생성 및 사용할 것이므로 나머지 메소드도 static 다 제거해도 됨. 어차피 new로 만들어진 RDAO로 다 접근해서 사용하면 되기 때문에.
+
+	private ArrayList<Review> reviews;
+	
+	private static final ReviewDAO RDAO = new ReviewDAO();
+	
+	private ReviewDAO() {
+		
+	}
+	public static ReviewDAO getRdao() {
+		return RDAO;
+	}
+
+---------------------------------------------------------------------------------------------
+3. 2번까지 하고 저장하면 컨트롤러가 다 터지는데
+기존에 적어놓은 내용은  클래스명.메소드명() 으로 static way 접근임
+static을 다 제거했으니 당연히 저렇게는 못쓰고 위에서 만들어 놓은 getter를 통해
+인스턴스를 얻어서 그걸로 기능 사용할꺼임
+
+ex) //	이거 주석하고	ReviewDAO.getAllReview(request);
+이런식으로 작성 (클래스명.게터.메소드) 
+ >>  ReviewDAO.getRdao().getAllReview(request);
+	ReviewDAO.getRdao().paging(1, request);
+
+getAll을 부르고 나면 전체 카운트가 되어서 paging()기능이 동작 가능하므로 사용해주면 됨
+의미상 첫페이지를 보여주고자 한다면 1을 인자로 주기로.
+
+나머지 터진 컨트롤러도 위와 같이 싹다 바꿔주면 ok
+
+--------------------------------------------------------------------------------------------
+
+4. m4.jsp에 다음 내용을 추가 (paging메소드에서 attr 세팅한 값들을 활용하고 있음)
+그리고 ReviewPageController 를 만들어서 페이징 동작을 제어. 서블릿 생성 후 5번으로 
+
+	<table style="width: 500px; height: 50px;">
+		<tr>
+		<td align="center">
+		<a href="ReviewPageController?p=1">맨처음</a>
+		<c:forEach var="p" begin="1" end="${pageCount }">
+					<a href="ReviewPageController?p=${p }">	[${p }]</a>
+		</c:forEach>
+		<a href="ReviewPageController?p=${pageCount }">맨끝</a>
+		</td>
+		</tr>
+	</table>
+
+
+--------------------------------------------------------------------------------------------
+5. a 태그를 통해 타고온 파라메터를 처리하기 위해 doget에 다음을 추가
+
+	int p = Integer.parseInt(request.getParameter("p"));
+	ReviewDAO.getRdao().paging(p, request);
+			
+	request.setAttribute("contentPage", "m4.jsp");
+	request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
+	
+
+--------------------------------------------------------------------------------------------
