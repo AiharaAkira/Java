@@ -34,10 +34,10 @@ public class LableEx extends Frame {
 		add(la3);
 		add(la4);
 
-		la1.setBackground(Color.red);
-		la2.setBackground(Color.red);
-		la3.setBackground(Color.red);
-		la4.setBackground(Color.red);
+		la1.setBackground(Color.GREEN);
+		la2.setBackground(Color.GREEN);
+		la3.setBackground(Color.GREEN);
+		la4.setBackground(Color.GREEN);
 
 		// 폰트지정
 		la1.setFont(f1);
