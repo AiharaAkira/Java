@@ -1,153 +1,237 @@
 package com.fin.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Choice;
-import java.awt.GridLayout;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MainUi extends JFrame {
+import com.fin.cal.ButtonEx;
 
-	private Label income = new Label("¼öÀÔ");
-	private Label income2 = new Label("¼öÀÔ");
-	private Label  amount = new Label("±İ¾×");
-	private Label  amount2 = new Label("±İ¾×");
-	private Label  Memo = new Label("¸Ş¸ğ");
-	private Label  Memo2 = new Label("¸Ş¸ğ");
+public class MainUi extends JFrame implements ActionListener, MouseListener{
+
+	
+	private Dimension dim = new Dimension(200,250);
+	
+	private JFrame frame = new JFrame("ê³„ì‚°ê¸°");
+	
+	
+	private Label income = new Label("ìˆ˜ì…");
+	private Label expense = new Label("ìˆ˜ì…");
+	private Label amount = new Label("ê¸ˆì•¡");
+	private Label amount2 = new Label("ê¸ˆì•¡");
+	private Label Memo = new Label("ë©”ëª¨");
+	private Label Memo2 = new Label("ë©”ëª¨");
 	private Choice co = new Choice();
 	private Choice co2 = new Choice();
-
+	private JPanel rightPanel = new JPanel();
+	private JPanel imgPanel = new JPanel();
+	private JPanel incomePanel = new JPanel();
+	private JPanel memoPanel = new JPanel();
+	private JPanel expensePanel = new JPanel();
+	private JPanel memoPanel2 = new JPanel();
+	private JPanel btnPanel = new JPanel();
+	
+	private JPanel leftPanel = new JPanel();
+	private JPanel bigTextPanel1 = new JPanel();
+	private JPanel resultPanel = new JPanel();
+	
+	
 	public MainUi() {
-
-		// Å¸ÀÌÆ²
-		setTitle("°¡°ÔºÎ");
-
-		// ¸Ş´º¹Ù
+		
+		leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+		imgPanel.setLayout(new BoxLayout(imgPanel, BoxLayout.X_AXIS));
+		incomePanel.setLayout(new BoxLayout(incomePanel, BoxLayout.X_AXIS));
+		memoPanel.setLayout(new BoxLayout(memoPanel, BoxLayout.X_AXIS));
+		expensePanel.setLayout(new BoxLayout(expensePanel, BoxLayout.X_AXIS));
+		memoPanel2.setLayout(new BoxLayout(memoPanel2, BoxLayout.X_AXIS));
+		btnPanel.setLayout(new BoxLayout(btnPanel, BoxLayout.X_AXIS));
+		
+		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+		bigTextPanel1.setLayout(new BoxLayout(bigTextPanel1, BoxLayout.X_AXIS));
+		resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.X_AXIS));
+		
 		JMenuBar mb = new JMenuBar();
-		JMenu FuncMenu = new JMenu("±â´É");
-		JMenu CalcMenu = new JMenu("°è»ê±â");
-		JMenu HelpMenu = new JMenu("µµ¿ò¸»");
+		JMenu FuncMenu = new JMenu("ê¸°ëŠ¥(F)");
+		JMenu CalcMenu = new JMenu("ê³„ì‚°ê¸°(C)");
+		JMenu HelpMenu = new JMenu("ë„ì›€ë§(H)");
 
 		mb.add(FuncMenu);
 
-		FuncMenu.add(new JMenuItem("ÀúÀåÇÏ±â(S)"));
-		FuncMenu.add(new JMenuItem("ºÒ·¯¿À±â(L)"));
+		FuncMenu.add(new JMenuItem("ì €ì¥í•˜ê¸°(S)"));
+		FuncMenu.add(new JMenuItem("ë¶ˆëŸ¬ì˜¤ê¸°(L)"));
 
 		mb.add(CalcMenu);
 
-		CalcMenu.add(new JMenuItem("½ÇÇàÇÏ±â(O)"));
+		JMenuItem calRun = new JMenuItem("ì‹¤í–‰í•˜ê¸°(O)");
+		calRun.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				new ButtonEx();
+				
+			}
+		});
+		CalcMenu.add(calRun);
 
 		mb.add(HelpMenu);
+		JMenuItem helps = new JMenuItem("ì •ë³´(I)");
+		helps.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				new HelpUi();
+				
+			}
+		});
+		HelpMenu.add(helps);
 
-		HelpMenu.add(new JMenuItem("Á¤º¸(I)"));
-
-		this.setJMenuBar(mb);
+		frame.setJMenuBar(mb);
 
 		// --------------------------
-		// ÀÌ¹ÌÁö
-		// ¶óº§ »ı¼º
+		
+		
 		JLabel imgLabel = new JLabel();
 
-		// ¾ÆÀÌÄÜ »ı¼º
 		ImageIcon icon = new ImageIcon(MainUi.class.getResource("img/1.jpg"));
 
 		Image img = icon.getImage();
 		Image updateImg = img.getScaledInstance(500, 300, Image.SCALE_SMOOTH);
 		ImageIcon updateIcon = new ImageIcon(updateImg);
 
-		// ¶óº§¿¡ ¾ÆÀÌÄÜ(ÀÌ¹ÌÁö) ¼³Á¤
 		imgLabel.setIcon(updateIcon);
 
-		// ¶óº§ ¼³Á¤(Å©±â, Á¤·Ä...)
 		imgLabel.setBounds(210, 30, 165, 150);
-		imgLabel.setHorizontalAlignment(JLabel.LEFT);
+		imgLabel.setHorizontalAlignment(JLabel.CENTER);
 
-		// ÇÁ·¹ÀÓ¿¡ ÄÄÆ÷³ÍÆ® Ãß°¡
-		getContentPane().add(imgLabel);
+
+		imgPanel.add(imgLabel);
+		leftPanel.add(imgPanel);
 
 		// --------------------------
-		//¼öÀÔ ÁöÃâ ¸Ş¸ğ
+
+
+		incomePanel.add(income);
 		
-		//1ÁÙ
-		setLayout(new GridLayout(18, 1));
+		co.add("ì›”ê¸‰");
+		co.add("ìš©ëˆ");
 
-		add(income);
+		incomePanel.add(co);
 
-		co.add("¿ù±Ş");
-		co.add("¿ëµ·");
+		incomePanel.add(amount);
 
-		add(co);
-
-		add(amount);
-		
 		JTextField text1 = new JTextField();
 		JTextField text2 = new JTextField();
+
+		incomePanel.add(text1);
+		leftPanel.add(incomePanel);
 		
-		add(text1);
+		memoPanel.add(Memo);
+		memoPanel.add(text2);
+		leftPanel.add(memoPanel);
+		expensePanel.add(expense);
+
+		co2.add("ë¬¸í™”ìƒí™œ");
+		co2.add("êµí†µë¹„");
+		co2.add("ì‹ë¹„");
+
+		expensePanel.add(co2);
+
+		expensePanel.add(amount2);
+
+		JTextField text3 = new JTextField();
+
+		expensePanel.add(text3);
+		leftPanel.add(expensePanel);
+		JTextField text4 = new JTextField();
+		memoPanel2.add(Memo2);
+		memoPanel2.add(text4);
+		leftPanel.add(memoPanel2);
 		
-		//2ÁÙ
 
-		add(Memo);
-		add(text2);
-		
-		//3ÁÙ
+		// -------------------------------
+		Button bt1 = new Button("INCOME");
+		Button bt2 = new Button("INCOME");
 
-				add(income2);
+		btnPanel.add(bt1);
+		btnPanel.add(bt2);
+		leftPanel.add(btnPanel);
 
-				co2.add("±³Åëºñ");
-				co2.add("¹®È­»ıÈ°");
-				co2.add("½Äºñ");
-
-				add(co2);
-
-				add(amount2);
-				
-				JTextField text3 = new JTextField();
-				
-				add(text3);
-				
-				//4ÁÙ
-				JTextField text4 = new JTextField();
-				add(Memo2);
-				add(text4);
-				
-				
-				//-------------------------------
-				//¹öÆ°
-				Button bt1 = new Button("INCOME"); 
-				Button bt2 = new Button("INCOME"); 
-				
-				add(bt1);
-				add(bt2);
-				
-				JTextField BigText1 = new JTextField();
-				JTextField BigText2 = new JTextField();
-				add(BigText1);
-				add(BigText2);
-				
-				
-				int balanceInt = 0;
-				JLabel balance = new JLabel("ÇöÀçÀÜ¾×: "+balanceInt + "¿ø");
-				add(balance);
-				
+		JTextField BigText1 = new JTextField();
+		JTextField BigText2 = new JTextField();
+		bigTextPanel1.add(BigText1);
+		bigTextPanel1.add(BigText2);
+		rightPanel.add(bigTextPanel1);
+		int balanceInt = 0;
+		JLabel balance = new JLabel("í˜„ì¬ ì”ì•¡: " + balanceInt + " ì›");
+		resultPanel.add(balance);
+		rightPanel.add(resultPanel);
 		
 		
-		WinEvent we = new WinEvent();
-		addWindowListener(we);
-		setSize(1000, 800);
-		setVisible(true);
+		frame.add(leftPanel,BorderLayout.WEST);
+		frame.add(rightPanel, BorderLayout.EAST);
+		frame.pack();
+		frame.setBounds(10,10,1000,700);
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
 		new MainUi();
+	}
+
+	
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
