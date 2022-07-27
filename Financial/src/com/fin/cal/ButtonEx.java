@@ -55,9 +55,9 @@ public class ButtonEx extends JFrame implements ActionListener {
 			button[i].setFont(new Font("Serif", Font.BOLD, 25)); // Font 지정
 			button[i].addActionListener(this); // 익명클래스로 버튼 이벤트 추가 ,이벤트 리스너의 객체이므로 this로 지정
 
-			if (i == 0 || i == 1 || i == 18)
+			if (i == 2 || i == 3 || i == 4|| i == 8|| i == 9|| i == 13|| i == 14|| i == 18|| i == 19|| i == 21|| i == 22|| i == 23|| i == 24)
 				button[i].setForeground(Color.RED); // 기능별 색 지정
-			if (i == 2 || i == 3 || i == 7 || i == 11 || i == 15 || i == 19)
+			if (i == 5 || i == 6 || i == 7 || i == 10 || i == 11 || i == 12|| i == 15 || i == 16 || i == 17|| i == 20)
 				button[i].setForeground(Color.BLUE);
 
 			btnView.add(button[i]);

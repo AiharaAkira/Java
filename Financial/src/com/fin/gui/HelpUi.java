@@ -50,7 +50,7 @@ public class HelpUi extends JFrame implements ActionListener,MouseListener{
 		frame.add(panel,BorderLayout.CENTER);
 		frame.add(panelSouth, BorderLayout.SOUTH);
 		frame.pack();
-		frame.setBounds(2, 2, 300, 150);
+		frame.setBounds(2, 2, 350, 150);
 		dispose();
 		frame.setVisible(true);
 		
