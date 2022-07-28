@@ -28,12 +28,14 @@ import javax.swing.JTextField;
 
 import com.fin.cal.ButtonEx;
 
+
+
 public class MainUi extends JFrame implements ActionListener, MouseListener {
-	
+
 	private Dimension dim = new Dimension(200, 250);
-	
+
 	private JFrame frame = new JFrame("계산기");
-	
+
 	private Label income = new Label("수입");
 	private Label expense = new Label("지출");
 	private Label amount = new Label("금액");
