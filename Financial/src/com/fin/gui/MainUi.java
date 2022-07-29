@@ -2,6 +2,7 @@ package com.fin.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Label;
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintStream;
@@ -24,16 +26,17 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.fin.cal.ButtonEx;
 
 public class MainUi extends JFrame implements ActionListener, MouseListener {
-	
+
 	private Dimension dim = new Dimension(200, 250);
-	
+
 	private JFrame frame = new JFrame("계산기");
-	
+
 	private Label income = new Label("수입");
 	private Label expense = new Label("지출");
 	private Label amount = new Label("금액");
@@ -49,16 +52,18 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 	private JPanel expensePanel = new JPanel();
 	private JPanel memoPanel2 = new JPanel();
 	private JPanel btnPanel = new JPanel();
-	JTextField BigText1 = new JTextField();
-	JTextField BigText2 = new JTextField();
+	JTextArea BigText1 = new JTextArea();
+	JTextArea BigText2 = new JTextArea();
 	private JPanel leftPanel = new JPanel();
 	private JPanel bigTextPanel1 = new JPanel();
+	private JPanel bigTextPanel2 = new JPanel();
 	private JPanel resultPanel = new JPanel();
 	private JLabel balance = new JLabel();
 	private int result = 0;
 	File f;
 
 	public MainUi() {
+
 		CalDAO calDAO = new CalDAO();
 		JTextField text1 = new JTextField(10);
 		JTextField text2 = new JTextField(21);
@@ -73,6 +78,7 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 		btnPanel.setLayout(new BoxLayout(btnPanel, BoxLayout.X_AXIS));
 		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 		bigTextPanel1.setLayout(new BoxLayout(bigTextPanel1, BoxLayout.X_AXIS));
+		bigTextPanel2.setLayout(new BoxLayout(bigTextPanel2, BoxLayout.X_AXIS));
 		resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.X_AXIS));
 
 		JMenuBar mb = new JMenuBar();
@@ -108,8 +114,6 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				new OutPutUi();
-
 				JFileChooser fc = new JFileChooser();
 				if (fc.showOpenDialog(MainUi.this) == JFileChooser.CANCEL_OPTION) {
 
@@ -120,6 +124,7 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 				f = fc.getSelectedFile();
 				setTitle(f.getName());
 				fileRead(f);
+
 			}
 		});
 		FuncMenu.add(getAllData);
@@ -218,11 +223,12 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 		// -------------------------------
 		JButton bt1 = new JButton("INCOME");
 		JButton bt2 = new JButton("EXPENSE");
-
 		bt1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BigText1.setText("수입 " + co.getSelectedItem() + " 금액 " + text1.getText() + "원 \n" + text2.getText());
+				BigText1.setText(BigText1.getText() + System.lineSeparator() + "\n수입 " + co.getSelectedItem() + " 금액 "
+						+ text1.getText() + "원 \n" + text2.getText());
+
 				result += Integer.parseInt(text1.getText());
 				System.out.println(Integer.parseInt(text1.getText()));
 				balance.setText("현재 잔액: " + result + " 원");
@@ -232,9 +238,10 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 		bt2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BigText2.setText("지출 " + co2.getSelectedItem() + " 금액 " + text3.getText() + "원 \n" + text4.getText());
+				BigText2.setText(BigText2.getText() + "\n\n\n지출 " + co2.getSelectedItem() + " 금액 " + text3.getText()
+						+ "원 \n" + text4.getText());
 				result -= Integer.parseInt(text3.getText());
-				balance.setText("현재 잔액: " + result + " 원");
+				balance.setText("현재 잔액: " + result + " 원| ");
 			}
 		});
 
@@ -247,7 +254,7 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 		rightPanel.add(bigTextPanel1);
 
 		result = calDAO.getAddCal();
-		balance.setText("현재 잔액: " + result + " 원");
+		balance.setText("현재 잔액: " + result + " 원 ");
 		resultPanel.add(balance);
 		rightPanel.add(resultPanel);
 
@@ -265,6 +272,7 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 			PrintStream ps = new PrintStream(f);
 			ps.println(BigText1.getText());
 			ps.println(BigText2.getText());
+			ps.print("\n\n현재잔액:"+result);
 			ps.close();
 		} catch (Exception e) {
 
@@ -289,9 +297,33 @@ public class MainUi extends JFrame implements ActionListener, MouseListener {
 				sw.write(ch);
 			}
 
-			BigText1.setText(sw.toString());
-			sw.close();
-			fr.close();
+			//new OutPutUi(sw.toString());
+
+			// BigText1.setText(sw.toString()); sw.close(); fr.close();
+
+		
+		
+			
+			JFrame frame = new JFrame();
+			JPanel panel = new JPanel();
+			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+			String str = (sw.toString());
+			System.out.println(str);
+			String[] array = str.split(" ");
+			for (String string : array) {
+				System.out.println(string);
+				
+				panel.add( new JLabel(" ") );
+				panel.add( new JLabel(string) );
+			}
+			
+			
+			panel.setBackground(Color.WHITE);
+			frame.add(panel);
+			frame.setBounds(100, 100, 700, 700); // 프레임의 크기 지정
+			frame.dispose();
+			frame.setVisible(true); // 프레임이 보이도록 설정
+			
 		} catch (Exception e) {
 
 			e.printStackTrace();

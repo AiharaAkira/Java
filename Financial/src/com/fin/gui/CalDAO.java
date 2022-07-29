@@ -34,7 +34,6 @@ public class CalDAO {
 			while(rs.next()) {
 
 				CalVO cal = new CalVO();
-				System.out.println("-------------------------------------");
 		
 				cal.setC_no(rs.getBigDecimal("c_no"));
 				cal.setC_income_type(rs.getString("c_income_type"));
@@ -46,7 +45,6 @@ public class CalDAO {
 				
 				lists.add(cal);
 				
-				System.out.println("-------------------------------------");
 			}
 			
 		} catch (Exception e) {
