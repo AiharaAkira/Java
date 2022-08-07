@@ -1,11 +1,10 @@
 package com.ex;
 
 public class InsMain {
-
-	public static void main(String[] args) {
-
-		Piano p = new Piano();
 		
+	public static void main(String[] args) {
+			
+		Piano p = new Piano();
 		p.play();
 		p.volumeUp();
 		p.volumeDown();

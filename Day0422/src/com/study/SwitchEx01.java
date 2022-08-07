@@ -20,6 +20,7 @@ public class SwitchEx01 {
 		System.out.println("연산자 입력: ");
 		char cal = br.readLine().charAt(0);
 		
+		
 		System.out.println("정수b입력: ");
 		int b = Integer.parseInt(br.readLine());
 		int tot = 0;

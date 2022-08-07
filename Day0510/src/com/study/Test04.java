@@ -24,6 +24,7 @@ public class Test04 {
 				max = i;
 			}
 		}
+		
 		System.out.println("가장큰수는: "+max);
 		
 	}

@@ -9,7 +9,7 @@ public class VectorEx {
 	};
 	
 	public static void main(String[] args) {
-
+		
 		int i;
 		Vector<String> v = new Vector<String>();
 		for(i = 0; i< colors.length; i++) {
@@ -23,5 +23,5 @@ public class VectorEx {
 		}
 		
 	}
-
+	
 }

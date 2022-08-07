@@ -18,8 +18,12 @@ public class IfEx01 {
 			System.out.print(a);
 			
 		}else {
+			//입력값이 알파벳이 아니라면입력오류
 			System.out.println("영어가 아니네요~");
 		}
+		
+		
+		
 		
 	}
 

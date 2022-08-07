@@ -1,7 +1,5 @@
 package com.inner;
 
-import com.inner.MemberInner.Inner;
-
 public class MemberInner {
 
 	int a = 10;

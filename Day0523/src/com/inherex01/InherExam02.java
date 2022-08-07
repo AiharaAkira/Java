@@ -3,7 +3,7 @@ package com.inherex01;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+	
 class AClass {
 	protected int x,y;
 	protected char c;

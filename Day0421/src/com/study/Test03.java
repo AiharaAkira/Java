@@ -6,7 +6,7 @@ public class Test03 {
 
 	static Test03 t3;
 
-	public static void swap(int house1, int house2) {
+	public static  void swap(int house1, int house2) {
 		int temp = house1;
 		house1 = house2;
 		house2 = temp;
@@ -14,6 +14,7 @@ public class Test03 {
 
 	public static void main(String[] args) {
 
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("임의의 정수a는?");
 		int a = sc.nextInt();
@@ -48,7 +49,7 @@ public class Test03 {
 		}
 
 		if (b > c) {
-			// ba
+			// 
 
 			temp = b;
 			b = c;

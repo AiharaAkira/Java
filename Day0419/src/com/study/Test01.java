@@ -40,7 +40,7 @@ public class Test01 {
 			}
 			
 		
-		
+		sc.close();
 		
 
 	}

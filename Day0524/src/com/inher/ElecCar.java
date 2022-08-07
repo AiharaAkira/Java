@@ -2,8 +2,8 @@ package com.inher;
 
 public class ElecCar {
 
-	double distance;
-	int battery;
+	private double distance;
+	private int battery;
 	
 	public ElecCar() {
 

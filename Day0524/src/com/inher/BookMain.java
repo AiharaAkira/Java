@@ -35,7 +35,8 @@ public class BookMain {
 			case 3:
 				
 				for (Book book : books) {
-					System.out.println(book);
+					System.out.println(book.title);
+					System.out.println(book.point);
 				}
 				
 				break;

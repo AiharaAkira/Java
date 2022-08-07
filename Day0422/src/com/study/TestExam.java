@@ -14,8 +14,11 @@ public class TestExam {
 		if ((word >= 'a' && word <= 'z' )||( word >= 'A' && word <= 'Z')) {
 			
 			
-			if(word == 'a' || word == 'A'||word == 'I' || word == 'i'||word == 'U' || word == 'u'||word == 'E' || word == 'e'||word == 'O' || word == 'o') {
+			if(word == 'a' ||  word == 'i'|| word == 'u'|| word == 'e'|| word == 'o') {
 				System.out.println("모음");
+			}else if(word == 'A'||word == 'I' ||word == 'U' ||word == 'E' ||word == 'O' ){
+				System.out.println("모음");
+				
 			}else {
 				System.out.println("자음");
 			}

@@ -32,6 +32,7 @@ public class Test01 {
 		System.out.printf("%d%c%d=%d\n",a,calc2,b,(a+b));
 		System.out.println(a+"+"+b+"="+(a+b));
 		
+		
 	}
 
 }

@@ -1,9 +1,10 @@
 package com.ex;
-
+	
 public class Flute extends Instrument {
-
+	
 	@Override
 	public void play() {
+		//인스턴스 메소드
 		System.out.println("Flute play()호출됨");
 	}
 	

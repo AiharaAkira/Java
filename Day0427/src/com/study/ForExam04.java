@@ -11,7 +11,7 @@ public class ForExam04 {
 		float sum = 0;
 		int cnt = 0;
 		while (true) {
-			System.out.println("실수입력: ");
+			System.out.println(" 실수입력: ");
 			float a = sc.nextFloat();
 			if (a < 0) {
 
@@ -30,6 +30,8 @@ public class ForExam04 {
 				System.out.printf("양의 실수 입력: %.1f \n", a);
 				System.out.println();
 
+			}else {
+				System.out.println("0이외의 수를 입력해주세요.");
 			}
 
 		}
